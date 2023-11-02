@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,16 +89,30 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   /* Initialize initial value */
   set_timer(0, 2);
+  HAL_GPIO_WritePin(V_RED_GPIO_Port, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|
+						   H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
+  uint8_t count = 0;
 
   while (1)
   {
+	  if (get_flag(0))
+	  {
+		  HAL_GPIO_WritePin(GPIOA, V_RED_Pin << count, RESET);
+		  count++;
+		  if (count >= 7)
+		  {
+			  count = 0;
+			  HAL_GPIO_WritePin(GPIOA, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
+		  }
+		  set_timer(0, 100);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -197,22 +211,48 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_TEST_GPIO_Port, LED_TEST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|H_RED_Pin
+                          |H_YELLOW_Pin|H_GREEN_Pin|SEG0_Pin|SEG1_Pin
+                          |SEG2_Pin|SEG3_Pin|SEG4_Pin|SEG5_Pin
+                          |SEG6_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_TEST_Pin */
-  GPIO_InitStruct.Pin = LED_TEST_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin|ENH1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : V_RED_Pin V_YELLOW_Pin V_GREEN_Pin H_RED_Pin
+                           H_YELLOW_Pin H_GREEN_Pin SEG0_Pin SEG1_Pin
+                           SEG2_Pin SEG3_Pin SEG4_Pin SEG5_Pin
+                           SEG6_Pin */
+  GPIO_InitStruct.Pin = V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|H_RED_Pin
+                          |H_YELLOW_Pin|H_GREEN_Pin|SEG0_Pin|SEG1_Pin
+                          |SEG2_Pin|SEG3_Pin|SEG4_Pin|SEG5_Pin
+                          |SEG6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_TEST_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : ENV0_Pin ENV1_Pin ENH0_Pin ENH1_Pin */
+  GPIO_InitStruct.Pin = ENV0_Pin|ENV1_Pin|ENH0_Pin|ENH1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BUTTON0_Pin BUTTON1_Pin BUTTON2_Pin */
+  GPIO_InitStruct.Pin = BUTTON0_Pin|BUTTON1_Pin|BUTTON2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-
+	run_timer(0);
 }
 /* USER CODE END 4 */
 
