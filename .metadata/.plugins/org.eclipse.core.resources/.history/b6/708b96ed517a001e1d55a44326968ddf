@@ -11,8 +11,11 @@ QUEUE queue;
 
 void init_queue()
 {
-	for (int i = 0; i < SIZE; i++)
-		queue.data[i] = 0;
+	for(int i = 0; i < SIZE; i++)
+	{
+		enqueue(0);
+		dequeue();
+	}
 }
 
 uint8_t is_on()
