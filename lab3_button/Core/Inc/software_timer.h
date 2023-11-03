@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define MAX_TIMER 5
+#define MAX_TIMER 10
 
 int get_flag(int idx_timer);
 void run_timer(int idx);
