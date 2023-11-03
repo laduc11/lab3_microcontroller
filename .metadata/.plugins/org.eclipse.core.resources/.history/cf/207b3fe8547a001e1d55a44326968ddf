@@ -17,9 +17,9 @@ typedef struct queue
 	uint8_t data[SIZE];
 } QUEUE;
 
-void init_queue(QUEUE queue);
+void init_queue();
 uint8_t is_on();
-void enqueue(QUEUE queue, uint8_t data);
-uint8_t dequeue(QUEUE queue);
+void enqueue(uint8_t data);
+uint8_t dequeue();
 
 #endif /* INC_QUEUE_H_ */

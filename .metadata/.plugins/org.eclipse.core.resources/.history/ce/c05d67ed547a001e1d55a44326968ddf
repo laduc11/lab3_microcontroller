@@ -7,5 +7,3 @@
 
 #include "button.h"
 
-uint8_t is_button_pressed(uint8_t index);
-void get_input_key(uint8_t index);
