@@ -101,6 +101,7 @@ int main(void)
   HAL_GPIO_WritePin(V_RED_GPIO_Port, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|
 						   H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
   init_button_state();
+  uint8_t count = 0;
 
   while (1)
   {

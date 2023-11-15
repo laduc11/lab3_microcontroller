@@ -71,7 +71,7 @@ void getKey(uint8_t idx)
 	button[idx].bState[1] = button[idx].bState[2];
 	button[idx].bState[2] = button[idx].bState[3];
 	button[idx].bState[3] = HAL_GPIO_ReadPin(BUTTON0_GPIO_Port, BUTTON0_Pin << idx);
-	if (checkState(idx) == RESET)
+	if (checkState() == RESET)
 	{
 		if (button[idx].bState[0] == GPIO_PIN_SET)
 		{

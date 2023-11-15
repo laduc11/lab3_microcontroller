@@ -34,9 +34,9 @@ void init_button_state()
  * input: index of button
  * output: state of button
  * */
-uint8_t checkState(uint8_t idx)
+uint8_t checkState()
 {
-	if (button[idx].bState[1] == GPIO_PIN_RESET && button[idx].bState[2] == GPIO_PIN_RESET && button[idx].bState[3] == GPIO_PIN_RESET)
+	if (bState[1] == GPIO_PIN_RESET && bState[2] == GPIO_PIN_RESET && bState[3] == GPIO_PIN_RESET)
 		return GPIO_PIN_RESET;
 	return GPIO_PIN_SET;
 }
@@ -71,7 +71,7 @@ void getKey(uint8_t idx)
 	button[idx].bState[1] = button[idx].bState[2];
 	button[idx].bState[2] = button[idx].bState[3];
 	button[idx].bState[3] = HAL_GPIO_ReadPin(BUTTON0_GPIO_Port, BUTTON0_Pin << idx);
-	if (checkState(idx) == RESET)
+	if (checkState() == RESET)
 	{
 		if (button[idx].bState[0] == GPIO_PIN_SET)
 		{
