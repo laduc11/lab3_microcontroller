@@ -1,6 +1,6 @@
-22:01:48 **** Incremental Build of configuration Debug for project lab3_button ****
+22:05:18 **** Incremental Build of configuration Debug for project lab3_button ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/mode3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode3.d" -MT"Core/Src/mode3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode3.o"
 arm-none-eabi-gcc "../Core/Src/mode4.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode4.d" -MT"Core/Src/mode4.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode4.o"
 arm-none-eabi-gcc -o "lab3_button.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Microcontroller\lab3_microcontroller\lab3_button\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_button.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: lab3_button.elf
@@ -16,9 +16,9 @@ Finished building: default.size.stdout
 Finished building: lab3_button.hex
 Finished building: lab3_button.bin
  
- 
 Finished building: lab3_button.list
  
+ 
 
-22:01:48 Build Finished. 0 errors, 0 warnings. (took 609ms)
+22:05:19 Build Finished. 0 errors, 0 warnings. (took 673ms)
 
