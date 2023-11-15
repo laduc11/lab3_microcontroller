@@ -25,11 +25,9 @@
 #include "software_timer.h"
 #include "button.h"
 #include "traffic_light.h"
-#include "led7seg.h"
 #include "mode1.h"
+#include "led7seg.h"
 #include "mode2.h"
-#include "mode3.h"
-#include "mode4.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -166,10 +164,8 @@ int main(void)
 			  setState2(MODE2_INIT);
 			  break;
 		  case MODE_3:
-			  setState3(MODE3_INIT);
 			  break;
 		  case MODE_4:
-			  setState4(MODE4_INIT);
 			  break;
 		  break;
 		  }

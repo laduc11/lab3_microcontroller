@@ -166,10 +166,8 @@ int main(void)
 			  setState2(MODE2_INIT);
 			  break;
 		  case MODE_3:
-			  setState3(MODE3_INIT);
 			  break;
 		  case MODE_4:
-			  setState4(MODE4_INIT);
 			  break;
 		  break;
 		  }
