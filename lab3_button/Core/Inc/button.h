@@ -1,7 +1,7 @@
 /*
  * button.h
  *
- *  Created on: Nov 3, 2023
+ *  Created on: Nov 7, 2023
  *      Author: DELL
  */
 
@@ -9,12 +9,24 @@
 #define INC_BUTTON_H_
 
 #include "main.h"
-#include "queue.h"
 
+#define PRESS_TIME 300	// (*10ms)
 #define MAX_BUTTON 3
 
-uint8_t is_button_pressed(uint8_t index);
-void get_input_key(uint8_t index);
+typedef enum state
+{
+	NORMAL = 0,
+	PRESSED = 1,
+	LONG_PRESSED = 2
+} STATE;
+typedef struct arrGPIO
+{
+	GPIO_PinState bState[4];
+} arrState;
 
+void init_button_state();
+uint8_t isPressed(uint8_t idx);
+uint8_t isLongPressed(uint8_t idx);
+void getKey(uint8_t idx);
 
 #endif /* INC_BUTTON_H_ */

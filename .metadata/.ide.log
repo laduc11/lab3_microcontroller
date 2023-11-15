@@ -1708,3 +1708,25 @@
 2023-11-03 21:07:06,008 [INFO] IPUIPlugin:74 - create IPUIPlugin
 2023-11-03 21:07:06,008 [INFO] IPUIPlugin:74 - create IPUIPlugin
 2023-11-03 21:07:06,114 [INFO] OpenFileManager:333 - Restore cursor
+2023-11-15 08:49:06,134 [INFO] Activator:177 - 
+
+
+2023-11-15 08:49:06,136 [INFO] Activator:178 - !SESSION log4j initialized
+2023-11-15 08:49:34,016 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [log;+0700 2023.11.15 08:49:34:13;ERROR;org.eclipse.ecf.identity;org.eclipse.core.runtime.Status[plugin=org.eclipse.ecf.identity;code=4;message=Namespace cannot be null;severity4;exception=org.eclipse.ecf.core.identity.IDCreateException: Namespace cannot be null;children=[]]]
+2023-11-15 08:49:34,019 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.ecf.core.identity.IDCreateException: Namespace cannot be null
+2023-11-15 08:49:34,020 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ecf.core.identity.IDFactory.logAndThrow(IDFactory.java:174)
+2023-11-15 08:49:34,022 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ecf.core.identity.IDFactory.createID(IDFactory.java:190)
+2023-11-15 08:49:34,024 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ecf.filetransfer.identity.FileIDFactory.createFileID(FileIDFactory.java:120)
+2023-11-15 08:49:34,026 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ecf.filetransfer.identity.FileIDFactory.createFileID(FileIDFactory.java:78)
+2023-11-15 08:49:34,028 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:452)
+2023-11-15 08:49:34,030 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:384)
+2023-11-15 08:49:34,033 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:107)
+2023-11-15 08:49:34,035 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:166)
+2023-11-15 08:49:34,038 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.handleRemoteIndexFile(AbstractRepositoryManager.java:729)
+2023-11-15 08:49:34,043 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadIndexFile(AbstractRepositoryManager.java:723)
+2023-11-15 08:49:34,046 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:665)
+2023-11-15 08:49:34,048 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:110)
+2023-11-15 08:49:34,050 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:105)
+2023-11-15 08:49:34,053 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.getAvailableRepositories(UpdateChecker.java:152)
+2023-11-15 08:49:34,055 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.checkForUpdates(UpdateChecker.java:130)
+2023-11-15 08:49:34,057 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:78)
