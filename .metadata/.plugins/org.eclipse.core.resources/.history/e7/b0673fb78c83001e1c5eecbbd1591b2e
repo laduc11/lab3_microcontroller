@@ -1,0 +1,16 @@
+/*
+ * mode1.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+/*
+ * run mode 1 in state machine
+ * input: current state
+ * output: none
+ * */
+void mode1()
+{
+
+}

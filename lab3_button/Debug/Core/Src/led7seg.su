@@ -1,0 +1,3 @@
+led7seg.c:10:6:display7seg	16	static
+led7seg.c:58:6:displayVertical	16	static
+led7seg.c:63:6:displayHorizon	16	static

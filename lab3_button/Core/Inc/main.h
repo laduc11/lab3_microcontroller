@@ -37,7 +37,13 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef enum fsm_state
+{
+	MODE_1 = 1,
+	MODE_2 = 2,
+	MODE_3 = 3,
+	MODE_4 = 4
+} FSM_STATE;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

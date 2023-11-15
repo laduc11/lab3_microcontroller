@@ -24,6 +24,9 @@
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
 #include "button.h"
+#include "traffic_light.h"
+#include "mode1.h"
+#include "led7seg.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define BLINK_LED 50	// (*timer_interupt_duration)
+#define CHANGE_STATE 100	// (*timer_interupt_duration)
 
 /* USER CODE END PD */
 
@@ -102,13 +105,48 @@ int main(void)
   HAL_GPIO_WritePin(V_RED_GPIO_Port, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|
 						   H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
   init_button_state();
+  mode1(INIT);
+//  STATE button[MAX_BUTTON];
+//  button[0] = NORMAL;
+//  button[1] = NORMAL;
+//  button[2] = NORMAL;
+  FSM_STATE state = MODE_1;
+  TRAFFIC start_state = RED_GREEN;
+  setState(start_state);
 
   while (1)
   {
+	  if (isPressed(0))
+	  {
+		  if (state >= MODE_4)
+			  state = MODE_1;
+		  else
+		  {
+			  state++;
+		  }
+	  }
 	  if (get_flag(0))
 	  {
-		  HAL_GPIO_TogglePin(GPIOA, H_RED_Pin|V_RED_Pin);
-		  set_timer(0, BLINK_LED);
+		  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin, SET);
+		  HAL_GPIO_WritePin(GPIOB, ENH1_Pin, RESET);
+		  switch (state)
+		  {
+		  case MODE_1:
+//			  mode1();
+			  display7seg(1);
+			  break;
+		  case MODE_2:
+			  display7seg(2);
+			  break;
+		  case MODE_3:
+			  display7seg(3);
+			  break;
+		  case MODE_4:
+			  display7seg(4);
+			  break;
+		  default:
+			  break;
+		  }
 	  }
     /* USER CODE END WHILE */
 

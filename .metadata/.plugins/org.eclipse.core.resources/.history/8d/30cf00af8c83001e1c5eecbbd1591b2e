@@ -1,0 +1,21 @@
+/*
+ * traffic_light.h
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#ifndef INC_TRAFFIC_LIGHT_H_
+#define INC_TRAFFIC_LIGHT_H_
+
+#include "main.h"
+
+typedef enum traffic
+{
+	RED_GREEN = 0,
+	RED_YELLOW = 1,
+	GREEN_RED = 2,
+	YELLOW_RED = 3
+} TRAFFIC;
+
+#endif /* INC_TRAFFIC_LIGHT_H_ */

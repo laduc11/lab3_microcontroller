@@ -1,0 +1,18 @@
+/*
+ * led7seg.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#include "led7seg.h"
+
+void displayVertical(uint8_t num);
+{
+
+}
+
+void displayHorizon(uint8_t num)
+{
+
+}
