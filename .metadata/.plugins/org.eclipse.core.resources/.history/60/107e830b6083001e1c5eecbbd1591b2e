@@ -10,6 +10,7 @@
 int counter[MAX_BUTTON];
 uint8_t bFlag[MAX_BUTTON] = {0};
 uint8_t bLongFlag[MAX_BUTTON] = {0};
+GPIO_PinState bState[4] = {GPIO_PIN_SET, GPIO_PIN_SET, GPIO_PIN_SET, GPIO_PIN_SET};
 arrState button[MAX_BUTTON];
 
 /*Initial button state
