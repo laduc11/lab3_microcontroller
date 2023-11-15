@@ -22,17 +22,17 @@ void mode3()
 		break;
 	case MODE3_INCREASE:
 		// increase time duration
-		displayHorizon(yellow);
-		if (isPressed(1))
-		{
-			yellow++;
-			if (yellow > 99)
-				yellow = 0;
-		}
+//		displayHorizon(yellow);
+//		if (isPressed(1))
+//		{
+//			yellow++;
+//			if (yellow > 99)
+//				yellow = 0;
+//		}
 		break;
 	case MODE3_SET_TIME:
 		// set time duration
-		setYellow(yellow);
+//		setYellow(yellow);
 		break;
 	default:
 		break;
