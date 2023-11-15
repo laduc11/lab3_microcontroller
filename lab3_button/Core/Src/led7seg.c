@@ -73,7 +73,6 @@ void displayVertical(uint8_t num)
 		return;
 	buffer[1][1] = num % 10;
 	buffer[1][0] = num / 10;
-
 }
 
 /*
@@ -83,5 +82,8 @@ void displayVertical(uint8_t num)
  * */
 void displayHorizon(uint8_t num)
 {
-
+	if (num > 99)
+		return;
+	buffer[0][1] = num % 10;
+	buffer[0][0] = num / 10;
 }
