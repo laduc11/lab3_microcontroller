@@ -96,6 +96,7 @@ void getKey(uint8_t idx)
 	}
 	else
 	{
+		button[idx].bState[0] = GPIO_PIN_SET;
 		counter[idx] = PRESS_TIME;
 	}
 }
