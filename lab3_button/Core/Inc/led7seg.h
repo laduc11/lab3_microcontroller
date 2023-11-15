@@ -9,8 +9,10 @@
 #define INC_LED7SEG_H_
 
 #include "main.h"
+#include "software_timer.h"
 
 void display7seg(uint8_t num);
+void update7seg();
 void displayVertical(uint8_t num);
 void displayHorizon(uint8_t num);
 

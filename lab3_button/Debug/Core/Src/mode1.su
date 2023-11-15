@@ -1,2 +1,5 @@
 mode1.c:19:6:mode1	8	static
-mode1.c:61:6:setState1	16	static
+mode1.c:107:6:setState1	16	static
+mode1.c:117:6:setRed	16	static
+mode1.c:127:6:setYellow	16	static
+mode1.c:137:6:setGreen	16	static

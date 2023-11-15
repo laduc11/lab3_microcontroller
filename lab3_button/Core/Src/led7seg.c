@@ -8,6 +8,9 @@
 #include "led7seg.h"
 
 uint8_t buffer[2][2] = {{0,0}, {0,0}};
+// enable
+uint8_t enable_counter = 0;
+
 /*
  * Display number on 7-segment led
  * input: number range 0-9
@@ -73,7 +76,6 @@ void displayVertical(uint8_t num)
 		return;
 	buffer[1][1] = num % 10;
 	buffer[1][0] = num / 10;
-
 }
 
 /*
@@ -83,5 +85,27 @@ void displayVertical(uint8_t num)
  * */
 void displayHorizon(uint8_t num)
 {
+	if (num > 99)
+		return;
+	buffer[0][1] = num % 10;
+	buffer[0][0] = num / 10;
+}
 
+/*
+ * Update 7-segment led
+ * input: none
+ * output: none
+ * */
+void update7seg()
+{
+  if (get_flag(2))
+  {
+	  set_timer(2, 25);
+	  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin|ENH1_Pin, SET);
+	  HAL_GPIO_WritePin(GPIOB, ENV0_Pin << enable_counter, RESET);
+	  display7seg(buffer[enable_counter/2][enable_counter%2]);
+	  enable_counter++;
+	  if (enable_counter > 3)
+		  enable_counter = 0;
+  }
 }

@@ -1,3 +1,4 @@
-led7seg.c:16:6:display7seg	16	static
-led7seg.c:70:6:displayVertical	16	static
-led7seg.c:84:6:displayHorizon	16	static
+led7seg.c:19:6:display7seg	16	static
+led7seg.c:73:6:displayVertical	16	static
+led7seg.c:86:6:displayHorizon	16	static
+led7seg.c:99:6:update7seg	8	static

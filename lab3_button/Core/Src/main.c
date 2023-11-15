@@ -105,20 +105,28 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   /* Initialize initial value */
+  // timer interupt
   set_timer(0, 2);	// change mode
   set_timer(1, 2);	// blink led
+  set_timer(2, 2);	// scan 7-segment led
+  // led
   HAL_GPIO_WritePin(V_RED_GPIO_Port, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|
 						   H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
+  // button
   init_button_state();
   STATE button[MAX_BUTTON];
   button[0] = NORMAL;
   button[1] = NORMAL;
   button[2] = NORMAL;
+  // finite state machine
   FSM_STATE state = MODE_1;
   setState1(INIT);
   mode1();
   TRAFFIC start_state = RED_GREEN;
   setState1(start_state);
+  // 7-segment led
+  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin|ENH1_Pin, SET);
+
 
   while (1)
   {
@@ -157,6 +165,7 @@ int main(void)
 		  {
 			  state++;
 		  }
+		  // set up environment
 		  switch(state)
 		  {
 		  case MODE_1:
@@ -205,32 +214,31 @@ int main(void)
 		  break;
 	  }
 
-	  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin, SET);
-	  HAL_GPIO_WritePin(GPIOB, ENH1_Pin, RESET);
 	  switch (state)
 	  {
 	  case MODE_1:
 		  mode1();
-		  display7seg(1);
 		  break;
 	  case MODE_2:
 		  mode2();
-		  display7seg(2);
+		  displayVertical(2);
 		  blinkRed();
 		  break;
 	  case MODE_3:
 		  mode3();
-		  display7seg(3);
+		  displayVertical(3);
 		  blinkYellow();
 		  break;
 	  case MODE_4:
 		  mode4();
-		  display7seg(4);
+		  displayVertical(4);
 		  blinkGreen();
 		  break;
 	  default:
 		  break;
 	  }
+
+	  update7seg();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -372,6 +380,9 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	run_timer(0);
 	run_timer(1);
+	run_timer(2);
+	run_timer(3);
+	run_timer(4);
 	getKey(0);
 	getKey(1);
 	getKey(2);
