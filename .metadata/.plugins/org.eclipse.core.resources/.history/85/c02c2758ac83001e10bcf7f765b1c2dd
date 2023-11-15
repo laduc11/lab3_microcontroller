@@ -1,0 +1,33 @@
+/*
+ * mode2.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#include "mode2.h"
+
+MODE2_STATE state = MODE2_INIT;
+
+void mode2()
+{
+	switch (state)
+	{
+	case MODE2_INIT:
+		HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|
+								 ENH0_Pin|ENH1_Pin, SET);
+		break;
+	case INCREASE:
+		break;
+	case SET_TIME:
+		break;
+	default:
+		break;
+	// increase time duration
+	// set time duration
+	}
+
+
+	// blink led red
+	HAL_GPIO_TogglePin(GPIOA, V_RED_Pin|H_RED_Pin);
+}

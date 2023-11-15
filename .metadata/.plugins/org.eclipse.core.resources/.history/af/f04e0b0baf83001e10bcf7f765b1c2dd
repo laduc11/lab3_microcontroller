@@ -1,0 +1,8 @@
+/*
+ * traffic_light.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#include "traffic_light.h"

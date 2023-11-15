@@ -58,7 +58,7 @@ void mode1()
  * input: current state
  * output: none
  * */
-void setState(TRAFFIC cur_state)
+void setState1(TRAFFIC cur_state)
 {
 	state = cur_state;
 }

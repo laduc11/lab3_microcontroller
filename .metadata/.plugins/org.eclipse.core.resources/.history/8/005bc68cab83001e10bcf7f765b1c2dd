@@ -1,0 +1,17 @@
+/*
+ * mode2.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#include "mode2.h"
+
+
+void mode2()
+{
+	// blink led red
+	HAL_GPIO_TogglePin(GPIOA, V_RED_Pin|H_RED_Pin);
+	// increase time duration
+	// set time duration
+}

@@ -27,6 +27,7 @@
 #include "traffic_light.h"
 #include "mode1.h"
 #include "led7seg.h"
+#include "mode2.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +37,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define CHANGE_STATE 100	// (*timer_interupt_duration)
+#define CHANGE_1 100	// (*timer_interupt_duration)
+#define CHANGE_2 25
 
 /* USER CODE END PD */
 
@@ -101,52 +103,127 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   /* Initialize initial value */
-  set_timer(0, 2);
+  set_timer(0, 2);	// change mode
+  set_timer(1, 2);	// blink led
   HAL_GPIO_WritePin(V_RED_GPIO_Port, V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin|
 						   H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin, SET);
   init_button_state();
-  mode1(INIT);
-//  STATE button[MAX_BUTTON];
-//  button[0] = NORMAL;
-//  button[1] = NORMAL;
-//  button[2] = NORMAL;
+  STATE button[MAX_BUTTON];
+  button[0] = NORMAL;
+  button[1] = NORMAL;
+  button[2] = NORMAL;
   FSM_STATE state = MODE_1;
+  setState1(INIT);
+  mode1();
   TRAFFIC start_state = RED_GREEN;
-  setState(start_state);
+  setState1(start_state);
 
   while (1)
   {
 	  if (isPressed(0))
+		  button[0] = PRESSED;
+	  else if (isLongPressed(0))
+		  button[0] = LONG_PRESSED;
+	  else
+		  button[0] = NORMAL;
+
+	  if (isPressed(1))
+  		  button[1] = PRESSED;
+  	  else if (isLongPressed(1))
+  		  button[1] = LONG_PRESSED;
+  	  else
+  		  button[1] = NORMAL;
+
+	  if (isPressed(2))
+  		  button[2] = PRESSED;
+ 	  else if (isLongPressed(0))
+  		  button[2] = LONG_PRESSED;
+  	  else
+  		  button[2] = NORMAL;
+
+	  switch (button[0])
 	  {
+	  case NORMAL:
+		  break;
+	  case PRESSED:
+		  // increase mode
 		  if (state >= MODE_4)
+		  {
 			  state = MODE_1;
+		  }
 		  else
 		  {
 			  state++;
 		  }
-	  }
-	  if (get_flag(0))
-	  {
-		  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin, SET);
-		  HAL_GPIO_WritePin(GPIOB, ENH1_Pin, RESET);
-		  switch (state)
+		  switch(state)
 		  {
 		  case MODE_1:
-//			  mode1();
-			  display7seg(1);
+			  setState1(INIT);
 			  break;
 		  case MODE_2:
-			  display7seg(2);
+			  setState2(MODE2_INIT);
 			  break;
 		  case MODE_3:
-			  display7seg(3);
 			  break;
 		  case MODE_4:
-			  display7seg(4);
 			  break;
-		  default:
-			  break;
+		  break;
 		  }
+	  case LONG_PRESSED:
+		  break;
+	  default:
+		  break;
+	  }
+
+	  switch (button[1])
+	  {
+	  case NORMAL:
+		  // increase led duration
+		  break;
+	  case PRESSED:
+		  break;
+	  case LONG_PRESSED:
+		  break;
+	  default:
+		  break;
+	  }
+
+	  switch (button[2])
+	  {
+	  case NORMAL:
+		  // set time duration for led
+		  break;
+	  case PRESSED:
+		  break;
+	  case LONG_PRESSED:
+		  break;
+	  default:
+		  break;
+	  }
+
+	  HAL_GPIO_WritePin(GPIOB, ENV0_Pin|ENV1_Pin|ENH0_Pin, SET);
+	  HAL_GPIO_WritePin(GPIOB, ENH1_Pin, RESET);
+	  switch (state)
+	  {
+	  case MODE_1:
+		  mode1();
+		  display7seg(1);
+		  break;
+	  case MODE_2:
+		  mode2();
+		  display7seg(2);
+		  blinkRed();
+		  break;
+	  case MODE_3:
+		  display7seg(3);
+		  blinkYellow();
+		  break;
+	  case MODE_4:
+		  display7seg(4);
+		  blinkGreen();
+		  break;
+	  default:
+		  break;
 	  }
     /* USER CODE END WHILE */
 
@@ -288,6 +365,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	run_timer(0);
+	run_timer(1);
 	getKey(0);
 	getKey(1);
 	getKey(2);

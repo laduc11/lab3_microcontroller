@@ -1,0 +1,17 @@
+/*
+ * traffic_light.c
+ *
+ *  Created on: Nov 15, 2023
+ *      Author: DELL
+ */
+
+#include "traffic_light.h"
+
+/*
+ * Blink led red with frequency = 2Hz
+ * input: none
+ * output: none
+ * */
+void blinkRed();
+void blinkYellow();
+void blinkGreen();

@@ -9,6 +9,9 @@
 #define INC_TRAFFIC_LIGHT_H_
 
 #include "main.h"
+#include "software_timer.h"
+
+#define BLINK_LED 25
 
 typedef enum traffic
 {
@@ -18,5 +21,9 @@ typedef enum traffic
 	GREEN_RED = 3,
 	YELLOW_RED = 4
 } TRAFFIC;
+
+void blinkRed();
+void blinkYellow();
+void blinkGreen();
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */

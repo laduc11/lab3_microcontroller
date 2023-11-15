@@ -1,0 +1,3 @@
+traffic_light.c:15:6:blinkRed	8	static
+traffic_light.c:29:6:blinkYellow	8	static
+traffic_light.c:43:6:blinkGreen	8	static

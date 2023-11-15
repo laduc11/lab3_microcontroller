@@ -18,7 +18,7 @@
 #define DEFAUFT_GREEN 3
 
 void mode1();
-void setState(TRAFFIC cur_state);
+void setState1(TRAFFIC cur_state);
 void setRed(uint8_t num);
 void setYellow(uint8_t num);
 void setGreen(uint8_t num);

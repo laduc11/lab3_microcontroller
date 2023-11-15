@@ -7,6 +7,12 @@
 
 #include "led7seg.h"
 
+uint8_t buffer[2][2] = {{0,0}, {0,0}};
+/*
+ * Display number on 7-segment led
+ * input: number range 0-9
+ * output: none
+ * */
 void display7seg(uint8_t num)
 {
 	switch(num)
@@ -55,11 +61,26 @@ void display7seg(uint8_t num)
 		break;
 	}
 }
+
+/*
+ * Display number on vertical 7-segment led
+ * input: number range 0-99
+ * output: none
+ * */
 void displayVertical(uint8_t num)
 {
+	if (num > 99)
+		return;
+	buffer[1][1] = num % 10;
+	buffer[1][0] = num / 10;
 
 }
 
+/*
+ * Display number on horizon 7-segment led
+ * input: number range 0-99
+ * output: none
+ * */
 void displayHorizon(uint8_t num)
 {
 
