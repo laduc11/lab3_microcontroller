@@ -34,7 +34,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define BLINK_LED 50	// (*timer_interupt_duration)
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
