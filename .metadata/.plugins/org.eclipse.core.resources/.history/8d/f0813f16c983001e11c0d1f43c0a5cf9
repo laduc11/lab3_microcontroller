@@ -58,7 +58,7 @@ void blinkGreen()
  * */
 void setRed(uint8_t num)
 {
-	red = num;
+
 }
 
 /*
@@ -68,7 +68,7 @@ void setRed(uint8_t num)
  * */
 void setYellow(uint8_t num)
 {
-	yellow = num;
+
 }
 
 /*
@@ -78,7 +78,7 @@ void setYellow(uint8_t num)
  * */
 void setGreen(uint8_t num)
 {
-	green = num;
+
 }
 
 /*

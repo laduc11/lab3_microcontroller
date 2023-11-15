@@ -1,38 +1,38 @@
 /*
- * mode2.c
+ * mode4.c
  *
  *  Created on: Nov 15, 2023
  *      Author: DELL
  */
 
-#include "mode2.h"
+#include "mode4.h"
 
-MODE2_STATE state;
-uint8_t mod_red;
+MODE4_STATE state;
+uint8_t green;
 
-void mode2()
+void mode4()
 {
 	switch (state)
 	{
-	case MODE2_INIT:
+	case MODE4_INIT:
 		HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 								 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
-		state = MODE2_INCREASE;
-		mod_red = getRed();
+		state = MODE4_INCREASE;
+		green = getGreen();
 		break;
-	case MODE2_INCREASE:
+	case MODE4_INCREASE:
 		// increase time duration
-		displayHorizon(mod_red);
+		displayHorizon(green);
 		if (isPressed(1))
 		{
-			mod_red++;
-			if (mod_red > 99)
-				mod_red = 0;
+			green++;
+			if (green > 99)
+				green = 0;
 		}
 		break;
-	case MODE2_SET_TIME:
+	case MODE4_SET_TIME:
 		// set time duration
-		setRed(mod_red);
+		setGreen(green);
 		break;
 	default:
 		state = MODE2_INIT;
@@ -40,7 +40,7 @@ void mode2()
 	}
 }
 
-void setState2(MODE2_STATE cur_state)
+void setState4(MODE4_STATE cur_state)
 {
 	state = cur_state;
 }

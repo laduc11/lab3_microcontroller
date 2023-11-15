@@ -305,3 +305,104 @@ Finished building: lab3_button.bin
 Finished building: lab3_button.list
  
  
+22:08:31 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/mode2.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode2.d" -MT"Core/Src/mode2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode2.o"
+arm-none-eabi-gcc "../Core/Src/mode3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode3.d" -MT"Core/Src/mode3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode3.o"
+arm-none-eabi-gcc "../Core/Src/mode4.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode4.d" -MT"Core/Src/mode4.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode4.o"
+arm-none-eabi-gcc -o "lab3_button.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Microcontroller\lab3_microcontroller\lab3_button\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_button.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_button.elf
+ 
+arm-none-eabi-size   lab3_button.elf 
+arm-none-eabi-objdump -h -S  lab3_button.elf  > "lab3_button.list"
+arm-none-eabi-objcopy  -O ihex  lab3_button.elf  "lab3_button.hex"
+   text	   data	    bss	    dec	    hex	filename
+  10496	     24	   1768	  12288	   3000	lab3_button.elf
+arm-none-eabi-objcopy  -O binary  lab3_button.elf  "lab3_button.bin"
+Finished building: default.size.stdout
+ 
+Finished building: lab3_button.hex
+Finished building: lab3_button.bin
+ 
+ 
+Finished building: lab3_button.list
+ 
+22:09:28 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/mode2.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode2.d" -MT"Core/Src/mode2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode2.o"
+../Core/Src/mode2.c: In function 'mode2':
+../Core/Src/mode2.c:21:3: error: 'red' undeclared (first use in this function)
+   21 |   red = getRed();
+      |   ^~~
+../Core/Src/mode2.c:21:3: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:58: Core/Src/mode2.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:11:00 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/mode2.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode2.d" -MT"Core/Src/mode2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode2.o"
+arm-none-eabi-gcc "../Core/Src/traffic_light.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/traffic_light.d" -MT"Core/Src/traffic_light.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/traffic_light.o"
+arm-none-eabi-gcc -o "lab3_button.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Microcontroller\lab3_microcontroller\lab3_button\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_button.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_button.elf
+ 
+arm-none-eabi-size   lab3_button.elf 
+arm-none-eabi-objdump -h -S  lab3_button.elf  > "lab3_button.list"
+arm-none-eabi-objcopy  -O ihex  lab3_button.elf  "lab3_button.hex"
+   text	   data	    bss	    dec	    hex	filename
+  10532	     24	   1768	  12324	   3024	lab3_button.elf
+arm-none-eabi-objcopy  -O binary  lab3_button.elf  "lab3_button.bin"
+Finished building: default.size.stdout
+ 
+Finished building: lab3_button.hex
+ 
+Finished building: lab3_button.bin
+ 
+Finished building: lab3_button.list
+ 
+22:11:14 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-size   lab3_button.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10532	     24	   1768	  12324	   3024	lab3_button.elf
+Finished building: default.size.stdout
+ 
+22:13:17 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/mode2.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode2.d" -MT"Core/Src/mode2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode2.o"
+arm-none-eabi-gcc -o "lab3_button.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Microcontroller\lab3_microcontroller\lab3_button\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_button.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_button.elf
+ 
+arm-none-eabi-size   lab3_button.elf 
+arm-none-eabi-objdump -h -S  lab3_button.elf  > "lab3_button.list"
+arm-none-eabi-objcopy  -O ihex  lab3_button.elf  "lab3_button.hex"
+   text	   data	    bss	    dec	    hex	filename
+  10532	     24	   1768	  12324	   3024	lab3_button.elf
+arm-none-eabi-objcopy  -O binary  lab3_button.elf  "lab3_button.bin"
+Finished building: default.size.stdout
+ 
+Finished building: lab3_button.hex
+Finished building: lab3_button.bin
+ 
+ 
+Finished building: lab3_button.list
+ 
+22:14:49 **** Incremental Build of configuration Debug for project lab3_button ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/mode3.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode3.d" -MT"Core/Src/mode3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode3.o"
+arm-none-eabi-gcc "../Core/Src/mode4.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/mode4.d" -MT"Core/Src/mode4.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/mode4.o"
+arm-none-eabi-gcc -o "lab3_button.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Microcontroller\lab3_microcontroller\lab3_button\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3_button.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab3_button.elf
+ 
+arm-none-eabi-size   lab3_button.elf 
+arm-none-eabi-objdump -h -S  lab3_button.elf  > "lab3_button.list"
+arm-none-eabi-objcopy  -O ihex  lab3_button.elf  "lab3_button.hex"
+   text	   data	    bss	    dec	    hex	filename
+  10532	     24	   1768	  12324	   3024	lab3_button.elf
+arm-none-eabi-objcopy  -O binary  lab3_button.elf  "lab3_button.bin"
+Finished building: default.size.stdout
+ 
+Finished building: lab3_button.hex
+Finished building: lab3_button.bin
+ 
+ 
+Finished building: lab3_button.list
+ 

@@ -78,7 +78,7 @@ void setYellow(uint8_t num)
  * */
 void setGreen(uint8_t num)
 {
-	green = num;
+
 }
 
 /*
