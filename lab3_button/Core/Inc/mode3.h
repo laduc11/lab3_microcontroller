@@ -9,6 +9,9 @@
 #define INC_MODE3_H_
 
 #include "main.h"
+#include "traffic_light.h"
+#include "led7seg.h"
+#include "button.h"
 
 typedef enum mode3_state
 {

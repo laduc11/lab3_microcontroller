@@ -8,6 +8,7 @@
 #include "mode3.h"
 
 MODE3_STATE state;
+uint8_t yellow;
 
 void mode3()
 {
@@ -17,12 +18,21 @@ void mode3()
 		HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 								 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
 		state = MODE3_INCREASE;
+		yellow = getYellow();
 		break;
 	case MODE3_INCREASE:
 		// increase time duration
+//		displayHorizon(yellow);
+//		if (isPressed(1))
+//		{
+//			yellow++;
+//			if (yellow > 99)
+//				yellow = 0;
+//		}
 		break;
 	case MODE3_SET_TIME:
 		// set time duration
+//		setYellow(yellow);
 		break;
 	default:
 		break;

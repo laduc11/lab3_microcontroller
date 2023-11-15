@@ -220,16 +220,100 @@ int main(void)
 		  mode1();
 		  break;
 	  case MODE_2:
+		  switch (button[1])
+	  	  {
+	  	  case NORMAL:
+	  		  break;
+	  	  case PRESSED:
+	  		  // increase led duration
+	  		  setState2(MODE2_INCREASE);
+	  		  break;
+	  	  case LONG_PRESSED:
+	  		  break;
+	  	  default:
+	  		  break;
+	  	  }
+
+		  switch (button[2])
+		  {
+		  case NORMAL:
+			  break;
+		  case PRESSED:
+			  // set time duration for led
+			  setState2(MODE2_SET_TIME);
+			  break;
+		  case LONG_PRESSED:
+			  break;
+		  default:
+			  break;
+		  }
+
 		  mode2();
 		  displayVertical(2);
 		  blinkRed();
 		  break;
 	  case MODE_3:
+		  switch (button[1])
+	  	  {
+	  	  case NORMAL:
+	  		  break;
+	  	  case PRESSED:
+	  		  // increase led duration
+	  		  setState2(MODE2_INCREASE);
+	  		  break;
+	  	  case LONG_PRESSED:
+	  		  break;
+	  	  default:
+	  		  break;
+	  	  }
+
+		  switch (button[2])
+		  {
+		  case NORMAL:
+			  break;
+		  case PRESSED:
+			  // set time duration for led
+			  setState2(MODE2_SET_TIME);
+			  break;
+		  case LONG_PRESSED:
+			  break;
+		  default:
+			  break;
+		  }
+
 		  mode3();
 		  displayVertical(3);
 		  blinkYellow();
 		  break;
 	  case MODE_4:
+		  switch (button[1])
+	  	  {
+	  	  case NORMAL:
+	  		  break;
+	  	  case PRESSED:
+	  		  // increase led duration
+	  		  setState2(MODE2_INCREASE);
+	  		  break;
+	  	  case LONG_PRESSED:
+	  		  break;
+	  	  default:
+	  		  break;
+	  	  }
+
+		  switch (button[2])
+		  {
+		  case NORMAL:
+			  break;
+		  case PRESSED:
+			  // set time duration for led
+			  setState2(MODE2_SET_TIME);
+			  break;
+		  case LONG_PRESSED:
+			  break;
+		  default:
+			  break;
+		  }
+
 		  mode4();
 		  displayVertical(4);
 		  blinkGreen();

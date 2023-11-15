@@ -13,14 +13,7 @@
 #include "traffic_light.h"
 #include "led7seg.h"
 
-#define DEFAUFT_RED 5
-#define DEFAUFT_YELLOW 2
-#define DEFAUFT_GREEN 3
-
 void mode1();
 void setState1(TRAFFIC cur_state);
-void setRed(uint8_t num);
-void setYellow(uint8_t num);
-void setGreen(uint8_t num);
 
 #endif /* INC_MODE1_H_ */

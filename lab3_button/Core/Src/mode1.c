@@ -8,7 +8,6 @@
 #include "mode1.h"
 
 uint8_t H_counter = 0, V_counter = 0;
-uint8_t red = DEFAUFT_RED, yellow = DEFAUFT_YELLOW, green = DEFAUFT_GREEN;
 TRAFFIC state;
 
 /*
@@ -30,13 +29,14 @@ void mode1()
 			V_counter = 0;
 			displayHorizon(0);
 			displayVertical(0);
+			state = RED_GREEN;
 			set_timer(0, 2);
 			break;
 		case RED_GREEN:
 			if (H_counter == 0)
-				H_counter = red;
+				H_counter = getRed();
 			if (V_counter == 0)
-				V_counter = green;
+				V_counter = getGreen();
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 									 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|V_GREEN_Pin, RESET);
@@ -49,9 +49,9 @@ void mode1()
 			break;
 		case RED_YELLOW:
 			if (H_counter == 0)
-				H_counter = red;
+				H_counter = getRed();
 			if (V_counter == 0)
-				V_counter = yellow;
+				V_counter = getYellow();
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 									 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|V_YELLOW_Pin, RESET);
@@ -64,9 +64,9 @@ void mode1()
 			break;
 		case GREEN_RED:
 			if (H_counter == 0)
-				H_counter = green;
+				H_counter = getGreen();
 			if (V_counter == 0)
-				V_counter = red;
+				V_counter = getRed();
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 									 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
 			HAL_GPIO_WritePin(GPIOA, H_GREEN_Pin|V_RED_Pin, RESET);
@@ -79,9 +79,9 @@ void mode1()
 			break;
 		case YELLOW_RED:
 			if (H_counter == 0)
-				H_counter = yellow;
+				H_counter = getYellow();
 			if (V_counter == 0)
-				V_counter = red;
+				V_counter = getRed();
 			HAL_GPIO_WritePin(GPIOA, H_RED_Pin|H_YELLOW_Pin|H_GREEN_Pin|
 									 V_RED_Pin|V_YELLOW_Pin|V_GREEN_Pin, SET);
 			HAL_GPIO_WritePin(GPIOA, H_YELLOW_Pin|V_RED_Pin, RESET);
@@ -109,32 +109,3 @@ void setState1(TRAFFIC cur_state)
 	state = cur_state;
 }
 
-/*
- * Set time duration for led red
- * input: time duration
- * output: none
- * */
-void setRed(uint8_t num)
-{
-
-}
-
-/*
- * Set time duration for led yellow
- * input: time duration
- * output: none
- * */
-void setYellow(uint8_t num)
-{
-
-}
-
-/*
- * Set time duration for led green
- * input: time duration
- * output: none
- * */
-void setGreen(uint8_t num)
-{
-
-}

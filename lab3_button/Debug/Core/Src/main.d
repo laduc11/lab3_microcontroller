@@ -26,8 +26,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/software_timer.h ../Core/Inc/main.h ../Core/Inc/button.h \
  ../Core/Inc/traffic_light.h ../Core/Inc/software_timer.h \
  ../Core/Inc/led7seg.h ../Core/Inc/mode1.h ../Core/Inc/traffic_light.h \
- ../Core/Inc/led7seg.h ../Core/Inc/mode2.h ../Core/Inc/mode3.h \
- ../Core/Inc/mode4.h
+ ../Core/Inc/led7seg.h ../Core/Inc/mode2.h ../Core/Inc/button.h \
+ ../Core/Inc/mode3.h ../Core/Inc/mode4.h
 
 ../Core/Inc/main.h:
 
@@ -98,6 +98,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/led7seg.h:
 
 ../Core/Inc/mode2.h:
+
+../Core/Inc/button.h:
 
 ../Core/Inc/mode3.h:
 

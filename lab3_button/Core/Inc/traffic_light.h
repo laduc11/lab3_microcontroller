@@ -11,6 +11,9 @@
 #include "main.h"
 #include "software_timer.h"
 
+#define DEFAUFT_RED 5
+#define DEFAUFT_YELLOW 2
+#define DEFAUFT_GREEN 3
 #define BLINK_LED 25
 
 typedef enum traffic
@@ -25,5 +28,11 @@ typedef enum traffic
 void blinkRed();
 void blinkYellow();
 void blinkGreen();
+void setRed(uint8_t num);
+void setYellow(uint8_t num);
+void setGreen(uint8_t num);
+uint8_t getRed();
+uint8_t getYellow();
+uint8_t getGreen();
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */

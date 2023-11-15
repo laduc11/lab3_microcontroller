@@ -1,3 +1,9 @@
-traffic_light.c:15:6:blinkRed	8	static
-traffic_light.c:29:6:blinkYellow	8	static
-traffic_light.c:43:6:blinkGreen	8	static
+traffic_light.c:17:6:blinkRed	8	static
+traffic_light.c:31:6:blinkYellow	8	static
+traffic_light.c:45:6:blinkGreen	8	static
+traffic_light.c:59:6:setRed	16	static
+traffic_light.c:69:6:setYellow	16	static
+traffic_light.c:79:6:setGreen	16	static
+traffic_light.c:89:9:getRed	4	static
+traffic_light.c:99:9:getYellow	4	static
+traffic_light.c:109:9:getGreen	4	static
